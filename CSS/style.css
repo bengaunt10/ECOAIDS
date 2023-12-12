@@ -8,6 +8,7 @@ body {
 }
 
 /*general grid layout used by all pages except the project page*/
+
 .layout {
     height: 100vh;
     width: 100vw;
@@ -42,6 +43,8 @@ a {
 
 /* Header Recycled for all webpages*/
 header {
+    z-index: 1; /* set higher z-index value */
+    position: relative;
     background-color: rgb(153, 215, 184);
     grid-area: header;
     position: fixed;
