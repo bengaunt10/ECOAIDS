@@ -41,33 +41,46 @@
         }
 
         .Homepage {
+            margin-top: 15vh;
             justify-content: center;
             display: flex;
             flex-direction: row;
-            margin: 5vw;
+            gap: 5vw;
         }
         .live{
+            padding: 1vw;
             background-color: white;
+            border: 5px solid rgb(33, 60, 194);
+            border-radius: 20px;
+            width: 15vw;
+            height:45vh;
+            border: 5px solid rgb(33, 60, 194);
+            border-radius: 20px;
         }
         #Daily_Tasks{
-            border:1px;
-            border-color: black;
-            width: 30vw;
+            padding:1vw;
+            border: 5px solid rgb(33, 60, 194);
+            border-radius: 20px;
+            width: 40vw;
             justify-content: left;
              display: flex;
             flex-direction: column;
             background-color: white;
+            height: 65vh;
         }
         #DailyTasksNav{
             justify-content: center;
              display: flex;
             flex-direction: row;
+            gap: 3vw;
+            text-align: center;
+            
         }
         .DailyTasksButton{
             border: none;
-            border-radius: 2px;
+            border-radius: 20px;
             color: white;
-            padding: 15px 32px;
+            padding: 35px 72px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -77,14 +90,22 @@
             background-color: aqua;
         }
         #leaderboard{
+            padding:1vw;
+            width: 15vw;
+            height:45vh;
+            border: 5px solid rgb(33, 60, 194);
+            border-radius: 20px;
             background-color: white;
+        }
+        .content_header{
+            margin-top:-1vh;
         }
         
 
     </style>
     <main class = "homepage" >
         <div class="Live">
-            <h2>Live</h2>
+            <h2 class="content_header">Live</h2>
             <p>article 1</p>
             <hr>
             <p>articl 2</p>
@@ -95,7 +116,7 @@
         </div>
 
         <div id="Daily_Tasks">
-            <h2>Daily Tasks</h2>
+            <h2 class="content_header">Daily Tasks</h2>
             <hr>
             <div id ="DailyTasksNav">
                 <section>
@@ -124,7 +145,7 @@
             </ul>
         </div>
         <div id="Leaderboard">
-            <h2>Live</h2>
+            <h2 class="content_header">Leaderboard</h2>
             <p>Tyler Ninja Fortnite Blevins</p>
             <hr>
             <p>Ryan Gosling</p>
