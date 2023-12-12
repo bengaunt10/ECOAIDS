@@ -28,13 +28,108 @@
 
     </header>
       
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/earthBackG.png');
+            background-color: black;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            max-width: 100%;
+        }
 
-    <main class = "homepage" >
-  
-    <hr class="HeaderHR">
-    <br>
-    <p>this is a Change</p>
+        .Homepage {
+            justify-content: center;
+             display: flex;
+            flex-direction: row;
+        }
+        .live{
+            background-color: white;
+        }
+        #Daily_Tasks{
+            justify-content: left;
+             display: flex;
+            flex-direction: column;
+            background-color: white;
+        }
+        #DailyTasksNav{
+            justify-content: center;
+             display: flex;
+            flex-direction: row;
+        }
+        .DailyTasksButton{
+            border: none;
+            border-radius: 2px;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            background-color: aqua;
+        }
+        #leaderboard{
+            background-color: white;
+        }
         
+
+    </style>
+    <main class = "homepage" >
+        <div class="Live">
+            <h2>Live</h2>
+            <p>article 1</p>
+            <hr>
+            <p>articl 2</p>
+            <hr>
+            <p>Article 3</p>
+            <hr>
+            <p>Article 4</p>
+        </div>
+
+        <div id="Daily_Tasks">
+            <h2>Daily Tasks</h2>
+            <hr>
+            <div id ="DailyTasksNav">
+                <section>
+                    <button class="DailyTasksButton"> </button>
+                    <h2>QUIZ </h2>
+                </section>
+                <section>
+                    <button class="DailyTasksButton"> </button>
+                    <h2>Learn </h2>
+                </section>
+                <section>
+                    <button class="DailyTasksButton"> </button>
+                    <h2>Watch </h2>
+                </section>
+            </div>
+            <ul>
+                <li>
+                    <p>checklist 1</p>
+                </li>
+                <li>
+                    <p>checklist 2</p>
+                </li>
+                <li>
+                    <p>checklist 3</p>
+                </li>
+            </ul>
+        </div>
+        <div id="Leaderboard">
+            <h2>Live</h2>
+            <p>Tyler Ninja Fortnite Blevins</p>
+            <hr>
+            <p>Ryan Gosling</p>
+            <hr>
+            <p>Peter Griffin</p>
+            <hr>
+            <p>HARRY JOSHUA BLOOMFIELD</p>
+        </div>
+            
 
     </main>
 

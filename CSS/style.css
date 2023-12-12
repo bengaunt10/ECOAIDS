@@ -86,7 +86,6 @@ p{
 
 
 
-
 /* Horizontal Navigation Bar Styles */
 .navbar {
     margin-left: auto;
@@ -118,12 +117,7 @@ p{
     color: #16A085;
 }
 
-/* seperate styles for each pages main section */
 
-.Homepage {
-    display: grid;
-    min-height: 100vh;
-    grid-template-areas:
-        "Name image"
-        "contacts image"
-}
+
+/* seperate styles for each pages main section */
+/* HomePage Section */
