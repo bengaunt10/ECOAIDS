@@ -1,0 +1,215 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Poppins:wght@100&family=Roboto+Condensed:wght@300&display=swap"
+    rel="stylesheet">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/CSS/style.css" rel="stylesheet" type="text/css">
+    <title>Your Progress</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .roadmap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border-style: solid;
+            border-width: 3px ;
+            border-radius: 10px;
+        }
+
+        .milestone {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .milestone p:hover {
+            color:rgb(4, 56, 135);
+            font-weight: bold;
+        }
+
+        .milestone::before {
+            content: '';
+            position: absolute;
+            top: 33%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background-color: #3498db;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        .milestone.active::before {
+            background-color: #27ae60;
+        }
+
+        .milestone h2 {
+            color: #333;
+        }
+
+        .checklist {
+            max-width: 94%;
+            margin-left: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-style: solid;
+            border-width: 3px ;
+            border-radius: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        li::before {
+            content: '';
+            /* Unicode character for a bullet point */
+            color: #27ae60;
+            /* Green color for the bullet point */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        label {
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        input[type="checkbox"]+label {
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:checked+label {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+    </style>
+
+</head>
+
+<body class="layout">
+
+    <header class="layout_header">
+        <h1>Progress Tracker</h1>
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="MyProgress.html">Progress</li>
+                    <li><a href="news.html">News</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <hr class="HeaderHR">
+        <section class="checklist">
+            <h3>Daily Checklist</h3>
+            <div>
+                <ul style=" list-style-type: none;">
+                    <li>
+                        <input type="checkbox" id="task1">
+                        <label for="task1">Turn computers to sleep mode</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task2">
+                        <label for="task2">Turn off your plugs</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task3">
+                        <label for="task3">Reduce your foodwaste</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task4">
+                        <label for="task4">Recycle Properly</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task5">
+                        <label for="task5">Turn off all your lights</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task6">
+                        <label for="task6">Take public transport</label>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+
+        <br>
+
+        <hr>
+
+        <section>
+            <h3>Progress Roadmap</h3>
+            <div class="roadmap">
+                <div class="milestone active">
+                    <h2>Zero-Waste Living </h2>
+                    <p>Mindful Shopping</p>
+                    <p>Composting</p>
+                    <p>Reduce Single-Use Plastics</p>
+                </div>
+
+                <div class="milestone">
+                    <h2>Carbon Footprint Reduction</h2>
+                    <p>Green transportation</p>
+                    <p>Energy Efficiency</p>
+                    <p>Plant Based Diet</p>
+                </div>
+
+                <div class="milestone">
+                    <h2>Sustainable Consumer Habits</h2>
+                    <p>Ethical Fashion Choices</p>
+                    <p>Local and Seasonal Eating</p>
+                    <p>Mindful Waste Management</p>
+                </div>
+
+                <!-- Add more milestones as needed -->
+
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <footer class="layout_footer">
+        <!-- Footer content goes here -->
+    </footer>
+
+</body>
+
+</html>
