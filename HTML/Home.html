@@ -39,37 +39,68 @@
             background-attachment: fixed;
             max-width: 100%;
         }
+        .container {
+            display: grid;
+            grid-template-areas:
+            "page1"
+            "page2";
+        }
 
-        .Homepage {
+
+        #Homepage{
+            grid-area:page1;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        #Homepage_contents{
+            grid-area:page1;
+            height: 100vh;
+            width: 100vw;
+            margin-top: 15vh;
             justify-content: center;
             display: flex;
             flex-direction: row;
-            margin: 5vw;
+            gap: 5vw;
         }
 
         .live{
+            padding: 1vw;
             background-color: white;
+            border: 5px solid rgb(33, 60, 194);
+            border-radius: 20px;
+            width: 15vw;
+            height:45vh;
+            border: 5px solid rgb(33, 60, 194);
+            border-radius: 20px;
         }
 
         #Daily_Tasks{
-            border:1px;
-            border-color: black;
-            width: 30vw;
+            padding:1vw;
+            border: 5px solid rgb(33, 60, 194);
+            border-radius: 20px;
+            width: 40vw;
             justify-content: left;
              display: flex;
             flex-direction: column;
             background-color: white;
+            height: 65vh;
         }
         #DailyTasksNav{
             justify-content: center;
              display: flex;
             flex-direction: row;
+            gap: 3vw;
+            text-align: center;
+            
         }
         .DailyTasksButton{
             border: none;
-            border-radius: 2px;
+            border-radius: 20px;
             color: white;
-            padding: 15px 32px;
+            padding: 35px 72px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -80,69 +111,108 @@
         }
         
         #leaderboard{
+            padding:1vw;
+            width: 15vw;
+            height:45vh;
+            border: 5px solid rgb(33, 60, 194);
+            border-radius: 20px;
             background-color: white;
         }
-        
+        .content_header{
+            margin-top:-1vh;
+        }
+        .DailyTasksButton:hover{
+            background-color: blue;
+            opacity:0.7;
+            transition: 0.4s;
+        }
+        #Home_footer {
+            color:white;
+            text-align: center;
+            font-size: 65px;
+            margin-bottom: 0;
+        }
 
+        #Home_footer:hover {
+            transition: 0.3s;
+            opacity:0.3;
+            background-color: rgb(133, 169, 194);
+        }
+
+        #AboutPage{
+            background-color: rgb(146, 206, 224);
+            opacity:0.6;
+            grid-area:page2;
+            height: 100vh;
+            width: 100vw;
+        }
+        #aboutpagecontents{
+            margin-top:13vh;
+        }
     </style>
-    <main class = "homepage" >
-        <div class="Live">
-            <h2>Live</h2>
-            <p>article 1</p>
-            <hr>
-            <p>articl 2</p>
-            <hr>
-            <p>Article 3</p>
-            <hr>
-            <p>Article 4</p>
-        </div>
+    <div class ="container">
+        <div id="Homepage">
+            <div id = "Homepage_Contents" >
+                <div class="Live">
+                    <h2 class="content_header">Live</h2>
+                    <p>article 1</p>
+                    <hr>
+                    <p>articl 2</p>
+                    <hr>
+                    <p>Article 3</p>
+                    <hr>
+                    <p>Article 4</p>
+                </div>
 
-        <div id="Daily_Tasks">
-            <h2>Daily Tasks</h2>
-            <hr>
-            <div id ="DailyTasksNav">
-                <section>
-                    <button class="DailyTasksButton"> </button>
-                    <h2>QUIZ </h2>
-                </section>
-                <section>
-                    <button class="DailyTasksButton"> </button>
-                    <h2>Learn </h2>
-                </section>
-                <section>
-                    <button class="DailyTasksButton"> </button>
-                    <h2>Watch </h2>
-                </section>
+                <div id="Daily_Tasks">
+                    <h2 class="content_header">Daily Tasks</h2>
+                    <hr>
+                    <div id ="DailyTasksNav">
+                        <section>
+                            <button class="DailyTasksButton"> </button>
+                            <h2>QUIZ </h2>
+                        </section>
+                        <section>
+                            <button class="DailyTasksButton"> </button>
+                            <h2>Learn </h2>
+                        </section>
+                        <section>
+                            <button class="DailyTasksButton"> </button>
+                            <h2>Watch </h2>
+                        </section>
+                    </div>
+                    <ul>
+                        <li>
+                            <p>checklist 1</p>
+                        </li>
+                        <li>
+                            <p>checklist 2</p>
+                        </li>
+                        <li>
+                            <p>checklist 3</p>
+                        </li>
+                    </ul>
+                </div>
+                <div id="Leaderboard">
+                    <h2 class="content_header">Leaderboard</h2>
+                    <p>Tyler Ninja Fortnite Blevins</p>
+                    <hr>
+                    <p>Ryan Gosling</p>
+                    <hr>
+                    <p>Peter Griffin</p>
+                    <hr>
+                    <p>HARRY JOSHUA BLOOMFIELD</p>
+                </div>
             </div>
-            <ul>
-                <li>
-                    <p>checklist 1</p>
-                </li>
-                <li>
-                    <p>checklist 2</p>
-                </li>
-                <li>
-                    <p>checklist 3</p>
-                </li>
-            </ul>
+            <footer><a href="#AboutPage"><p id="Home_footer">V</p></a></footer>
         </div>
-        <div id="Leaderboard">
-            <h2>Live</h2>
-            <p>Tyler Ninja Fortnite Blevins</p>
-            <hr>
-            <p>Ryan Gosling</p>
-            <hr>
-            <p>Peter Griffin</p>
-            <hr>
-            <p>HARRY JOSHUA BLOOMFIELD</p>
+        <div id="AboutPage">
+            <article id="aboutpagecontents">
+                <h2>About Us</h2>
+                <p>ABOUTNTHAAATT</p>
+            </article>
         </div>
-            
-
-    </main>
-
-    <footer class="layout_footer" id="homeFoot">
-        Contact us EcoAid@outlook.com
-    </footer>
+    </div>
 
 </body>
 
