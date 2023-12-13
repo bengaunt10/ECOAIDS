@@ -45,14 +45,16 @@ a {
 header {
     z-index: 1; /* set higher z-index value */
     position: relative;
-    background-color: rgb(114, 181, 146);
+    background-color: rgb(60, 139, 64);
     grid-area: header;
     position: fixed;
     width: 100%;
     color: #17202A;
     display: flex;
     flex-direction: row;
-
+    border-bottom: 10px solid #0c7541;
+    font-family: 'Montserrat';
+    padding-left: 1%;
 }
 
 .HeaderHR {
