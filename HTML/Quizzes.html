@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/CSS/style.css" rel="stylesheet" type="text/css">
-    <title>Your Progress</title>
+    <title>Quiz</title>
 
     <style>
         body {
@@ -37,7 +37,6 @@
             flex-direction: column;
             min-width: 66vw;
             max-width: 66vw;
-            height: 150vw;
             align-items: center;
             justify-content: center;
             background-color: rgb(255, 255, 255);
@@ -46,7 +45,6 @@
 
         .content{
             text-align:center;
-            margin-top: -70%; /* Adjust the top margin as needed */
             margin-bottom: 30px; /* Adjust the bottom margin as needed */
            /* margin-left:-70%; */
         }
@@ -55,153 +53,50 @@
             margin-bottom: 8%;
         }
 
-        #Intro{
-            background-color: rgb(255, 255, 255);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px;
-            padding:15px;
-        }
-
-
-        /*CHECKLIST CSS*/
-
-        .checklist {
-            background-color: rgb(255, 255, 255);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px;
-            padding:15px;
-            text-align: left;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        li {
-            margin-bottom: 10px;
-            position: relative;
-        }
-
-        label:hover {
-            background-color: #f0f0f0;
-        }
-
-        li::before {
-            content: '';
-            /* Unicode character for a bullet point */
-            color: #27ae60;
-            /* Green color for the bullet point */
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-        label {
-            display: inline-block;
-            margin-left: 10px;
-            font-family: 'Raleway', sans-serif;
-        }
-
-        input[type="checkbox"] {
-            position: absolute;
-            opacity: 0;
-        }
-
-        input[type="checkbox"]+label {
-            cursor: pointer;
-        }
-
-        input[type="checkbox"]:checked+label {
-            text-decoration: line-through;
-            color: #888;
-        }
-
-
-        /* ROAD MAP CSS*/
-        .roadmap {
-        overflow-x: auto; /* Enable horizontal scrolling */
-        white-space: nowrap; /* Prevent content from wrapping */
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        margin: 20px;
-        padding: 15px;
-    }
-
-    .milestone {
-        text-align: center;
-        flex: 1;
-        position: relative;
-        display: inline-block; /* Display milestones inline */
-        white-space: normal; /* Reset white-space to allow text wrapping inside milestones */
-        margin-right: 10px;
-        border-radius: 10px; /* Rounded border for milestones */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
-    }
-
-    .milestone::before {
-        content: '';
-        position: absolute;
-        top: 33%;
-        left: 50%;
-        white-space: normal; /* Reset white-space to allow text wrapping inside milestones */
-        transform: translate(-50%, -50%);
-        width: 20px;
-        height: 20px;
-        background-color: #3498db;
-        border-radius: 50%; /* Make the little square round */
-    }
-
-    .milestone.active::before {
-        background-color: #27ae60;
-    }
-
-    .milestone h2 {
-        color: #333;
-        margin-bottom: 10px; /* Add spacing between milestone title and description */
-    }
-
-        /*QUIZ SECTION*/
         #quiz-container {
-            display: flex;
-            flex-direction: column;
             max-width: 600px;
             width: 100%;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-left: 15%;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: space-between;
         }
 
         .button {
-            padding: 20px;
-            font-weight:bolder;
-            background-color:rgb(49, 78, 63);
+            padding: 15px;
+            margin: 10px;
+            font-size: 25px;
+            cursor: pointer;
+            background-color: rgb(49, 78, 63);
             color: rgb(254, 247, 186);
             border: none;
             border-radius: 4px;
-            cursor: pointer;
-            font-size:larger;
-            transition: font-size 0.3s, font-weight 0.3s; /* Add transition for smooth effect */
         }
 
         .button:hover {
-            font-size: 20px;
-            font-weight: bolder;
             color:rgb(49, 78, 63);
             background-color: rgb(254, 247, 186);
         }
+        
+        .success-animation {
+            animation: successFade 2s ease-in-out;
+            display: none;
+            color: #318e58;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
 
-        /* Style for the modal */
-        .modal {
+        @keyframes successFade {
+            0%, 100% {
+                opacity: 0;
+            }
+            20%, 80% {
+                opacity: 1;
+            }
+        }
+
+        .popup {
             display: none;
             position: fixed;
             top: 50%;
@@ -210,22 +105,52 @@
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 999;
         }
 
-        /* Style for the overlay/background behind the modal */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 900;
+        .popup h2 {
+            color: #134e2c;
         }
 
+        .popup p {
+            color: #318e58;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .popup button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgb(49, 78, 63);
+            color: rgb(254, 247, 186);
+            border: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .popup button:hover {
+            color: rgb(49, 78, 63);
+            background-color: rgb(254, 247, 186);
+        }
+
+        #startButton {
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: rgb(49, 78, 63);
+            color: rgb(254, 247, 186);
+            border: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        #startButton:hover {
+            color: rgb(49, 78, 63);
+            background-color: rgb(254, 247, 186);
+        }
 
 
 
@@ -237,7 +162,7 @@
 <body class="layout">
 
     <header class="layout_header">
-        <h1>Progress Tracker</h1>
+        <h1>Quizzes</h1>
         <div class="navbar">
             <nav>
                 <ul>
@@ -252,191 +177,108 @@
     <hr class="HeaderHR">
 
     <main class="container">
-
-        <div class="content" >
-            
-            <h2 style=" font-family: 'Montserrat', sans-serif;
-            font-weight: bold;">YOUR PROGRESS</h2>
-
-
-            <div class="contentItem" id="Intro">
-                <p>Welcome to the "Your Progress" page, your personal guide to becoming more eco-friendly! Here, you'll find a variety of tools to assist you on your journey towards a more sustainable lifestyle.</p>
-                
-                <p>Explore engaging quizzes that not only test your knowledge but also provide valuable insights into environmentally friendly practices. Check off items from your daily eco checklist to make sustainable choices a part of your routine.</p>
-                
-                <p>This page is your companion in creating a personal roadmap for your eco journey. Track your progress, set goals, and discover new ways to contribute to a healthier planet.</p>
-                
-                <p>Embrace the slaying of eco-conscious living, and let "Your Progress" be your go-to resource for a greener and more sustainable lifestyle. Happy eco journey!</p>
+        <h2 style=" font-family: 'Montserrat', sans-serif; font-weight: bold;">Renewable Energy Quiz</h2>
+        <div class="content">
+            <button id="startButton" onclick="startQuiz()">Start Quiz</button>
+            <div id="quiz-container" style="display: none;">
+                <h2 id="question"></h2>
+                <button class="button" onclick="checkAnswer(0)"></button>
+                <button class="button" onclick="checkAnswer(1)"></button>
+                <button class="button" onclick="checkAnswer(2)"></button>
+                <button class="button" onclick="checkAnswer(3)"></button>
+                <p>Score: <span id="score">0</span></p>
+                <p class="success-animation" id="successMessage">Correct!</p>
             </div>
-
-        <hr>
-
-            <div class="contentItem">
-                <h2>Quizzes section</h2>
-                <div id="quiz-container">
-                    <div class="buttons">
-                        <button class="button" onclick="openModal()">Your Results</button>
-                        <button class="button" onclick="openModal2()">Topics</button>
-                        <button class="button">Continue</button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="modal" class="modal">
-                <h2>Your overall quiz results:</h2>
-                <p style="color:#17202A;font-size:40px;font-weight: bolder;">80%</p>
-                <p>Well done! You are making great progress!</p>
-            </div>
-
-            <div id="overlay" class="overlay"></div>
-
-            <div id="modal2" class="modal">
-                <h2>Topic Selection</h2>
-                <div>
-                    <div class="buttons" style="padding:10px;">
-                        <button class="button" >Renewable Energy</button>
-                        <button class="button" >Carbon Footprint Reduction</button>
-                        <button class="button">Biodiversity and Ecosystems</button>
-                    </div>
-                    <div class="buttons" style="padding:10px;">
-                        <button class="button" >Climate Science Fundamentals</button>
-                        <button class="button" >Global Climate Agreements</button>
-                        <button class="button">Extreme Weather Events</button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="overlay2" class="overlay"></div>
-
-        <hr>
-            <div class="contentItem">
-                <h2>Daily Checklist</h2>
-                <section class="checklist">
-                    <div>
-                        <ul style="list-style-type: none;">
-                            <li>
-                                <input type="checkbox" id="task1">
-                                <label for="task1" title="Click to mark as completed"><span class="icon">⚡️</span>Energy Saving</label>
-                                <ul>
-                                    <li>
-                                        <input type="checkbox" id="task2">
-                                        <label for="task2" title="Click to mark as completed"><span class="icon">🖥</span>Turn computers to sleep mode</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="task5">
-                                        <label for="task5" title="Click to mark as completed"><span class="icon">💡</span>Turn off all your lights</label>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <input type="checkbox" id="task4">
-                                <label for="task4" title="Click to mark as completed"><span class="icon">♻️</span>Recycling</label>
-                                <ul>
-                                    <li>
-                                        <input type="checkbox" id="task3">
-                                        <label for="task3" title="Click to mark as completed"><span class="icon">🍽</span>Reduce your food waste</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="task6">
-                                        <label for="task6" title="Click to mark as completed"><span class="icon">🚍</span>Take public transport</label>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        
-                    </div>
-                </section>
-            </div>
-
-        <hr>
-            <div class="contentItem">
-                <section>
-                    <h2>Progress Roadmap</h2>
-                    <div class="roadmap">
-                        <div class="milestone active">
-                            <h2>Zero-Waste Living</h2>
-                            <p>Mindful Shopping</p>
-                            <p>Composting</p>
-                            <p>Reduce Single-Use Plastics</p>
-                        </div>
-            
-                        <div class="milestone">
-                            <h2>Carbon Footprint Reduction</h2>
-                            <p>Green Transportation</p>
-                            <p>Energy Efficiency</p>
-                            <p>Plant-Based Diet</p>
-                        </div>
-            
-                        <div class="milestone">
-                            <h2>Sustainable Consumer Habits</h2>
-                            <p>Ethical Fashion Choices</p>
-                            <p>Local and Seasonal Eating</p>
-                            <p>Mindful Waste Management</p>
-                        </div>
-            
-                        <div class="milestone">
-                            <h2>Renewable Energy</h2>
-                            <p>Solar Power</p>
-                            <p>Wind Energy</p>
-                            <p>Hydropower</p>
-                        </div>
-            
-                        <div class="milestone">
-                            <h2>Biodiversity and Ecosystems</h2>
-                            <p>Protecting Wildlife</p>
-                            <p>Preserving Habitats</p>
-                            <p>Conservation Efforts</p>
-                        </div>
-            
-                        <div class="milestone">
-                            <h2>Climate Science Fundamentals</h2>
-                            <p>Understanding Greenhouse Gases</p>
-                            <p>Climate Research</p>
-                            <p>Impact of Climate Change</p>
-                        </div>
-        
-                    </div>
-                </section>
-            </div>
-
-
-
-
         </div>
 
-
-
+        <div class="popup" id="popup">
+            <h2>Well Done!</h2>
+            <p>Your score: <span id="finalScore">0</span></p>
+            <button onclick="resetQuiz()">Start Again</button>
+        </div>
     </main>
 
     <script>
-        function openModal() {
-            document.getElementById('modal').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
+     const questions = [
+            {
+                question: "What is the most common method used to harness energy from the sun for electricity generation?",
+                answers: ["Wind Power", "Hydropower", " Solar Photovoltaic (PV)", "Geothermal Energy"],
+                correctIndex: 2
+            },
+            {
+                question: "Which renewable energy source is often associated with large blades turning a rotor to generate electricity?",
+                answers: ["Biomass", "Tidal Power", "Wind Power", "Hydrogen Fuel Cells"],
+                correctIndex: 1
+            }
+            // Add more questions as needed
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function displayQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            document.getElementById("question").textContent = currentQuestion.question;
+
+            for (let i = 0; i < currentQuestion.answers.length; i++) {
+                document.getElementsByClassName("button")[i].textContent = currentQuestion.answers[i];
+            }
         }
 
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
+        function checkAnswer(answerIndex) {
+            const currentQuestion = questions[currentQuestionIndex];
+
+            if (answerIndex === currentQuestion.correctIndex) {
+                score++;
+                showSuccessAnimation();
+            }
+
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion();
+            } else {
+                showPopup();
+            }
+
+            document.getElementById("score").textContent = score;
         }
 
-        // Close the modal if the overlay is clicked
-        document.getElementById('overlay').addEventListener('click', closeModal);
+        function showSuccessAnimation() {
+            const successMessage = document.getElementById("successMessage");
+            successMessage.style.display = "block";
 
-        function openModal2() {
-            document.getElementById('modal2').style.display = 'block';
-            document.getElementById('overlay2').style.display = 'block';
+            setTimeout(() => {
+                successMessage.style.display = "none";
+            }, 2000); // Hide after 2 seconds
         }
 
-        function closeModal2() {
-            document.getElementById('modal2').style.display = 'none';
-            document.getElementById('overlay2').style.display = 'none';
+        function showPopup() {
+            const popup = document.getElementById("popup");
+            const finalScore = document.getElementById("finalScore");
+            finalScore.textContent = score;
+            popup.style.display = "block";
         }
 
-        // Close the second modal if the second overlay is clicked
-        document.getElementById('overlay2').addEventListener('click', closeModal2);
+        function resetQuiz() {
+            // Reset variables and hide popup
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById("score").textContent = score;
+            document.getElementById("popup").style.display = "none";
 
+            // Start the quiz again
+            displayQuestion();
+        }
+
+        function startQuiz() {
+            // Hide start button and display quiz container
+            document.getElementById("startButton").style.display = "none";
+            document.getElementById("quiz-container").style.display = "block";
+
+            // Start the quiz
+            displayQuestion();
+        }
     </script>
-
 
 </body>
 

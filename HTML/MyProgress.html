@@ -277,7 +277,7 @@
                     <div class="buttons">
                         <button class="button" onclick="openModal()">Your Results</button>
                         <button class="button" onclick="openModal2()">Topics</button>
-                        <button class="button">Continue</button>
+                        <button class="button" onclick="redirectToPage()">Quizzes</button>
                     </div>
                 </div>
             </div>
@@ -409,6 +409,12 @@
     </main>
 
     <script>
+
+        function redirectToPage() {
+            // Change 'pageB.html' to the URL of the page you want to navigate to
+            window.location.href = 'Quizzes.html';
+        }
+
         function openModal() {
             document.getElementById('modal').style.display = 'block';
             document.getElementById('overlay').style.display = 'block';
