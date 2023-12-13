@@ -1,6 +1,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Quattrocento:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap" rel="stylesheet">
+
 
 <!DOCTYPE HTML>
 <html lang="en">
@@ -42,7 +46,7 @@
 
         .content{
             text-align:center;
-            margin-top: -80%; /* Adjust the top margin as needed */
+            margin-top: -70%; /* Adjust the top margin as needed */
             margin-bottom: 30px; /* Adjust the bottom margin as needed */
            /* margin-left:-70%; */
         }
@@ -55,7 +59,10 @@
         /*CHECKLIST CSS*/
 
         .checklist {
-            background-color: rgb(255, 252, 252);
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding:15px;
         }
 
         ul {
@@ -83,6 +90,7 @@
         label {
             display: inline-block;
             margin-left: 10px;
+            font-family: 'Raleway', sans-serif;
         }
 
         input[type="checkbox"] {
@@ -141,6 +149,69 @@
             color: #333;
         }
 
+        /*QUIZ SECTION*/
+        #quiz-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-left: 15%;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button {
+            padding: 20px;
+            font-weight:bolder;
+            background-color:rgb(49, 78, 63);
+            color: rgb(254, 247, 186);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size:larger;
+            transition: font-size 0.3s, font-weight 0.3s; /* Add transition for smooth effect */
+        }
+
+        .button:hover {
+            font-size: 20px;
+            font-weight: bolder;
+            color:rgb(49, 78, 63);
+            background-color: rgb(254, 247, 186);
+        }
+
+        /* Style for the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        /* Style for the overlay/background behind the modal */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 900;
+        }
+
 
 
     </style>
@@ -186,12 +257,45 @@
 
             <div class="contentItem">
                 <h2>Quizzes section</h2>
+                <div id="quiz-container">
+                    <div class="buttons">
+                        <button class="button" onclick="openModal()">Your Results</button>
+                        <button class="button" onclick="openModal2()">Topics</button>
+                        <button class="button">Continue</button>
+                    </div>
+                </div>
             </div>
+
+            <div id="modal" class="modal">
+                <h2>Your overall quiz results:</h2>
+                <p style="color:#17202A;font-size:40px;font-weight: bolder;">80%</p>
+                <p>Well done! You are making great progress!</p>
+            </div>
+
+            <div id="overlay" class="overlay"></div>
+
+            <div id="modal2" class="modal">
+                <h2>Topic Selection</h2>
+                <div>
+                    <div class="buttons" style="padding:10px;">
+                        <button class="button" >Renewable Energy</button>
+                        <button class="button" >Carbon Footprint Reduction</button>
+                        <button class="button">Biodiversity and Ecosystems</button>
+                    </div>
+                    <div class="buttons" style="padding:10px;">
+                        <button class="button" >Climate Science Fundamentals</button>
+                        <button class="button" >Global Climate Agreements</button>
+                        <button class="button">Extreme Weather Events</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="overlay2" class="overlay"></div>
 
         <hr>
             <div class="contentItem">
+                <h2>Daily Checklist</h2>
                 <section class="checklist">
-                    <h2>Daily Checklist</h2>
                     <div>
                         <ul style=" list-style-type: none;">
                             <li>
@@ -258,17 +362,41 @@
 
 
 
-            <div class="contentItem">
-                This is one thing idek
-            </div>
-
-
 
         </div>
 
 
 
     </main>
+
+    <script>
+        function openModal() {
+            document.getElementById('modal').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Close the modal if the overlay is clicked
+        document.getElementById('overlay').addEventListener('click', closeModal);
+
+        function openModal2() {
+            document.getElementById('modal2').style.display = 'block';
+            document.getElementById('overlay2').style.display = 'block';
+        }
+
+        function closeModal2() {
+            document.getElementById('modal2').style.display = 'none';
+            document.getElementById('overlay2').style.display = 'none';
+        }
+
+        // Close the second modal if the second overlay is clicked
+        document.getElementById('overlay2').addEventListener('click', closeModal2);
+
+    </script>
 
 
 </body>
