@@ -32,7 +32,15 @@
             align-items: center;
             justify-content: center;
             background-color: rgb(255, 255, 255);
+            stroke: gray;
+            stroke-width: 5;
             margin: 0 auto;
+            min-height: fit-content;
+        }
+
+        .newsMedia{
+            width: 30vw;
+            min-height: 20vw;
         }
 
     </style>
@@ -58,20 +66,20 @@
         <p>Our curated section for the latest news on climate change. Check here for articles, papers and podcasts
             to keep you updated!
         </p>
-        <div class="video-container">
+        <div class="video-container" class = "newsMedia">
             <h3>Climate Change Video</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/oUsddpT9cGo" frameborder="0"
-                allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/oUsddpT9cGo" frameborder="0"
+                allowfullscreen class = "newsMedia"></iframe>
             <p>White House climate change report released, says effects are worsening.</p>
         </div>
         <hr>
         <h3>PLANET RACING TOWARD "DEAD-END 3 DEGREES TEMPERATURE RISE", U.N. WARNS</h3>
         <a href="https://news.sky.com/story/planet-racing-toward-dead-end-3c-temperature-rise-un-chief-warns-13011891"><img
-                src="/images/amazonDrought.jpg"></a>
+                src="/images/amazonDrought.jpg" class = "newsMedia"></a>
         <p>READ: SKY News report on recent global temperature increase. </p>
         <hr>
         <h3>UCL LATEST CLIMATE CHANGE PODCAST</h3>
-        <a href="https://soundcloud.com/uclsound"><img src="/images/polarbear.jpeg"></a>
+        <a href="https://soundcloud.com/uclsound"><img src="/images/polarbear.jpeg" class = "newsMedia"></a>
         <p>LISTEN: UCL's latest podcast discusses data behind the latest climate information. </p>
         <p></p>
     </main>
