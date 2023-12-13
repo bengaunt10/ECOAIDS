@@ -119,6 +119,23 @@
             color: #888;
         }
 
+        #checklist {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #checklist li {
+            margin: 5px;
+            padding: 8px;
+            cursor: pointer;
+            transition: text-decoration 0.3s ease; /* CSS transition for text-decoration */
+        }
+
+        #checklist li:hover {
+            background-color: #f0f0f0;
+        }
+
+
 
         /* ROAD MAP CSS*/
         .roadmap {
@@ -315,8 +332,8 @@
                     <div>
                         <ul style="list-style-type: none;">
                             <li>
-                                <input type="checkbox" id="task1">
-                                <label for="task1" title="Click to mark as completed"><span class="icon">⚡️</span>Energy Saving</label>
+                                <input type="checkbox" id="task1" id="checklist">
+                                <label for="task1" title="Click to mark as completed" ><span class="icon">⚡️</span>Energy Saving</label>
                                 <ul>
                                     <li>
                                         <input type="checkbox" id="task2">
@@ -410,6 +427,17 @@
 
     <script>
 
+        function toggleItem(checkbox) {
+            var listItem = checkbox.parentNode;
+
+            if (checkbox.checked) {
+                // If checkbox is checked, add a class to apply the strikethrough effect
+                listItem.classList.add('completed');
+            } else {
+                // If checkbox is unchecked, remove the class
+                listItem.classList.remove('completed');
+            }
+        }
         function redirectToPage() {
             // Change 'pageB.html' to the URL of the page you want to navigate to
             window.location.href = 'Quizzes.html';
