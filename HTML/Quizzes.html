@@ -1,0 +1,286 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap" rel="stylesheet">
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/CSS/style.css" rel="stylesheet" type="text/css">
+    <title>Quiz</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/earthBackG.png');
+            background-color: black;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            max-width: 100%;
+        }
+
+        h2{
+            color:#134e2c;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-width: 66vw;
+            max-width: 66vw;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(255, 255, 255);
+            margin: 0 auto;
+        }
+
+        .content{
+            text-align:center;
+            margin-bottom: 30px; /* Adjust the bottom margin as needed */
+           /* margin-left:-70%; */
+        }
+
+        .contentItem{
+            margin-bottom: 8%;
+        }
+
+        #quiz-container {
+            max-width: 600px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .button {
+            padding: 15px;
+            margin: 10px;
+            font-size: 25px;
+            cursor: pointer;
+            background-color: rgb(49, 78, 63);
+            color: rgb(254, 247, 186);
+            border: none;
+            border-radius: 4px;
+        }
+
+        .button:hover {
+            color:rgb(49, 78, 63);
+            background-color: rgb(254, 247, 186);
+        }
+        
+        .success-animation {
+            animation: successFade 2s ease-in-out;
+            display: none;
+            color: #318e58;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        @keyframes successFade {
+            0%, 100% {
+                opacity: 0;
+            }
+            20%, 80% {
+                opacity: 1;
+            }
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 999;
+        }
+
+        .popup h2 {
+            color: #134e2c;
+        }
+
+        .popup p {
+            color: #318e58;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .popup button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgb(49, 78, 63);
+            color: rgb(254, 247, 186);
+            border: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .popup button:hover {
+            color: rgb(49, 78, 63);
+            background-color: rgb(254, 247, 186);
+        }
+
+        #startButton {
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: rgb(49, 78, 63);
+            color: rgb(254, 247, 186);
+            border: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        #startButton:hover {
+            color: rgb(49, 78, 63);
+            background-color: rgb(254, 247, 186);
+        }
+
+
+
+    </style>
+</head>
+
+
+
+<body class="layout">
+
+    <header class="layout_header">
+        <h1>Quizzes</h1>
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="MyProgress.html">Progress</li>
+                    <li><a href="news.html">News</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <hr class="HeaderHR">
+
+    <main class="container">
+        <h2 style=" font-family: 'Montserrat', sans-serif; font-weight: bold;">Renewable Energy Quiz</h2>
+        <div class="content">
+            <button id="startButton" onclick="startQuiz()">Start Quiz</button>
+            <div id="quiz-container" style="display: none;">
+                <h2 id="question"></h2>
+                <button class="button" onclick="checkAnswer(0)"></button>
+                <button class="button" onclick="checkAnswer(1)"></button>
+                <button class="button" onclick="checkAnswer(2)"></button>
+                <button class="button" onclick="checkAnswer(3)"></button>
+                <p>Score: <span id="score">0</span></p>
+                <p class="success-animation" id="successMessage">Correct!</p>
+            </div>
+        </div>
+
+        <div class="popup" id="popup">
+            <h2>Well Done!</h2>
+            <p>Your score: <span id="finalScore">0</span></p>
+            <button onclick="resetQuiz()">Start Again</button>
+        </div>
+    </main>
+
+    <script>
+     const questions = [
+            {
+                question: "What is the most common method used to harness energy from the sun for electricity generation?",
+                answers: ["Wind Power", "Hydropower", " Solar Photovoltaic (PV)", "Geothermal Energy"],
+                correctIndex: 2
+            },
+            {
+                question: "Which renewable energy source is often associated with large blades turning a rotor to generate electricity?",
+                answers: ["Biomass", "Tidal Power", "Wind Power", "Hydrogen Fuel Cells"],
+                correctIndex: 1
+            }
+            // Add more questions as needed
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function displayQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            document.getElementById("question").textContent = currentQuestion.question;
+
+            for (let i = 0; i < currentQuestion.answers.length; i++) {
+                document.getElementsByClassName("button")[i].textContent = currentQuestion.answers[i];
+            }
+        }
+
+        function checkAnswer(answerIndex) {
+            const currentQuestion = questions[currentQuestionIndex];
+
+            if (answerIndex === currentQuestion.correctIndex) {
+                score++;
+                showSuccessAnimation();
+            }
+
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion();
+            } else {
+                showPopup();
+            }
+
+            document.getElementById("score").textContent = score;
+        }
+
+        function showSuccessAnimation() {
+            const successMessage = document.getElementById("successMessage");
+            successMessage.style.display = "block";
+
+            setTimeout(() => {
+                successMessage.style.display = "none";
+            }, 2000); // Hide after 2 seconds
+        }
+
+        function showPopup() {
+            const popup = document.getElementById("popup");
+            const finalScore = document.getElementById("finalScore");
+            finalScore.textContent = score;
+            popup.style.display = "block";
+        }
+
+        function resetQuiz() {
+            // Reset variables and hide popup
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById("score").textContent = score;
+            document.getElementById("popup").style.display = "none";
+
+            // Start the quiz again
+            displayQuestion();
+        }
+
+        function startQuiz() {
+            // Hide start button and display quiz container
+            document.getElementById("startButton").style.display = "none";
+            document.getElementById("quiz-container").style.display = "block";
+
+            // Start the quiz
+            displayQuestion();
+        }
+    </script>
+
+</body>
+
+
+</html>

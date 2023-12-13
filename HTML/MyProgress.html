@@ -1,12 +1,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Quattrocento:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap" rel="stylesheet">
 
 
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/CSS/style.css" rel="stylesheet" type="text/css">
@@ -15,58 +19,58 @@
     <style>
         body {
             margin: 0;
+            padding: 0;
+            background-image: url('/images/earthBackG.png');
+            background-color: black;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            max-width: 100%;
         }
 
-        h3{
-            margin-left: 2vw;
+        h2{
+            color:#134e2c;
         }
 
-        .roadmap {
+        .container {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            min-width: 66vw;
+            max-width: 66vw;
+            height: 150vw;
             align-items: center;
-            padding: 20px;
-            background-color: #fff;
+            justify-content: center;
+            background-color: rgb(255, 255, 255);
+            margin: 0 auto;
+        }
+
+        .content{
+            text-align:center;
+            margin-top: -70%; /* Adjust the top margin as needed */
+            margin-bottom: 30px; /* Adjust the bottom margin as needed */
+           /* margin-left:-70%; */
+        }
+
+        .contentItem{
+            margin-bottom: 8%;
+        }
+
+        #Intro{
+            background-color: rgb(255, 255, 255);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin: 20px;
+            padding:15px;
         }
 
-        .milestone {
-            text-align: center;
-            flex: 1;
-            position: relative;
-        }
 
-        .milestone p:hover {
-            color:rgb(4, 56, 135);
-            font-weight: bold;
-        }
-
-        .milestone::before {
-            content: '';
-            position: absolute;
-            top: 33%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 20px;
-            height: 20px;
-            background-color: #3498db;
-        }
-
-        .milestone.active::before {
-            background-color: #27ae60;
-        }
-
-        .milestone h2 {
-            color: #333;
-        }
+        /*CHECKLIST CSS*/
 
         .checklist {
-            max-width: 94%;
-            margin-left: 20px;
-            background-color: #fff;
+            background-color: rgb(255, 255, 255);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 10px;
+            margin: 20px;
+            padding:15px;
+            text-align: left;
         }
 
         ul {
@@ -78,6 +82,10 @@
         li {
             margin-bottom: 10px;
             position: relative;
+        }
+
+        label:hover {
+            background-color: #f0f0f0;
         }
 
         li::before {
@@ -94,6 +102,7 @@
         label {
             display: inline-block;
             margin-left: 10px;
+            font-family: 'Raleway', sans-serif;
         }
 
         input[type="checkbox"] {
@@ -110,9 +119,120 @@
             color: #888;
         }
 
-    </style>
 
+        /* ROAD MAP CSS*/
+        .roadmap {
+        overflow-x: auto; /* Enable horizontal scrolling */
+        white-space: nowrap; /* Prevent content from wrapping */
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .milestone {
+        text-align: center;
+        flex: 1;
+        position: relative;
+        display: inline-block; /* Display milestones inline */
+        white-space: normal; /* Reset white-space to allow text wrapping inside milestones */
+        margin-right: 10px;
+        border-radius: 10px; /* Rounded border for milestones */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+    }
+
+    .milestone::before {
+        content: '';
+        position: absolute;
+        top: 33%;
+        left: 50%;
+        white-space: normal; /* Reset white-space to allow text wrapping inside milestones */
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        background-color: #3498db;
+        border-radius: 50%; /* Make the little square round */
+    }
+
+    .milestone.active::before {
+        background-color: #27ae60;
+    }
+
+    .milestone h2 {
+        color: #333;
+        margin-bottom: 10px; /* Add spacing between milestone title and description */
+    }
+
+        /*QUIZ SECTION*/
+        #quiz-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-left: 15%;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button {
+            padding: 20px;
+            font-weight:bolder;
+            background-color:rgb(49, 78, 63);
+            color: rgb(254, 247, 186);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size:larger;
+            transition: font-size 0.3s, font-weight 0.3s; /* Add transition for smooth effect */
+        }
+
+        .button:hover {
+            font-size: 20px;
+            font-weight: bolder;
+            color:rgb(49, 78, 63);
+            background-color: rgb(254, 247, 186);
+        }
+
+        /* Style for the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        /* Style for the overlay/background behind the modal */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 900;
+        }
+
+
+
+
+    </style>
 </head>
+
+
 
 <body class="layout">
 
@@ -129,87 +249,202 @@
         </div>
     </header>
 
-    <main>
-        <hr class="HeaderHR">
+    <hr class="HeaderHR">
 
-        <section class="OpeningSection">
-            <h3 style>Your Progress</h3>
-        </section>
+    <main class="container">
 
-        <section class="checklist">
-            <h3>Daily Checklist</h3>
-            <div>
-                <ul style=" list-style-type: none;">
-                    <li>
-                        <input type="checkbox" id="task1">
-                        <label for="task1">Turn computers to sleep mode</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="task2">
-                        <label for="task2">Turn off your plugs</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="task3">
-                        <label for="task3">Reduce your foodwaste</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="task4">
-                        <label for="task4">Recycle Properly</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="task5">
-                        <label for="task5">Turn off all your lights</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="task6">
-                        <label for="task6">Take public transport</label>
-                    </li>
+        <div class="content" >
+            
+            <h2 style=" font-family: 'Montserrat', sans-serif;
+            font-weight: bold;">YOUR PROGRESS</h2>
 
-                </ul>
+
+            <div class="contentItem" id="Intro">
+                <p>Welcome to the "Your Progress" page, your personal guide to becoming more eco-friendly! Here, you'll find a variety of tools to assist you on your journey towards a more sustainable lifestyle.</p>
+                
+                <p>Explore engaging quizzes that not only test your knowledge but also provide valuable insights into environmentally friendly practices. Check off items from your daily eco checklist to make sustainable choices a part of your routine.</p>
+                
+                <p>This page is your companion in creating a personal roadmap for your eco journey. Track your progress, set goals, and discover new ways to contribute to a healthier planet.</p>
+                
+                <p>Embrace the slaying of eco-conscious living, and let "Your Progress" be your go-to resource for a greener and more sustainable lifestyle. Happy eco journey!</p>
             </div>
-        </section>
-
-        <br>
 
         <hr>
 
-        <section>
-            <h3>Progress Roadmap</h3>
-            <div class="roadmap">
-                <div class="milestone active">
-                    <h2>Zero-Waste Living </h2>
-                    <p>Mindful Shopping</p>
-                    <p>Composting</p>
-                    <p>Reduce Single-Use Plastics</p>
+            <div class="contentItem">
+                <h2>Quizzes section</h2>
+                <div id="quiz-container">
+                    <div class="buttons">
+                        <button class="button" onclick="openModal()">Your Results</button>
+                        <button class="button" onclick="openModal2()">Topics</button>
+                        <button class="button" onclick="redirectToPage()">Quizzes</button>
+                    </div>
                 </div>
-
-                <div class="milestone">
-                    <h2>Carbon Footprint Reduction</h2>
-                    <p>Green transportation</p>
-                    <p>Energy Efficiency</p>
-                    <p>Plant Based Diet</p>
-                </div>
-
-                <div class="milestone">
-                    <h2>Sustainable Consumer Habits</h2>
-                    <p>Ethical Fashion Choices</p>
-                    <p>Local and Seasonal Eating</p>
-                    <p>Mindful Waste Management</p>
-                </div>
-
-                <!-- Add more milestones as needed -->
-
             </div>
-        </section>
+
+            <div id="modal" class="modal">
+                <h2>Your overall quiz results:</h2>
+                <p style="color:#17202A;font-size:40px;font-weight: bolder;">80%</p>
+                <p>Well done! You are making great progress!</p>
+            </div>
+
+            <div id="overlay" class="overlay"></div>
+
+            <div id="modal2" class="modal">
+                <h2>Topic Selection</h2>
+                <div>
+                    <div class="buttons" style="padding:10px;">
+                        <button class="button" >Renewable Energy</button>
+                        <button class="button" >Carbon Footprint Reduction</button>
+                        <button class="button">Biodiversity and Ecosystems</button>
+                    </div>
+                    <div class="buttons" style="padding:10px;">
+                        <button class="button" >Climate Science Fundamentals</button>
+                        <button class="button" >Global Climate Agreements</button>
+                        <button class="button">Extreme Weather Events</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="overlay2" class="overlay"></div>
+
+        <hr>
+            <div class="contentItem">
+                <h2>Daily Checklist</h2>
+                <section class="checklist">
+                    <div>
+                        <ul style="list-style-type: none;">
+                            <li>
+                                <input type="checkbox" id="task1">
+                                <label for="task1" title="Click to mark as completed"><span class="icon">⚡️</span>Energy Saving</label>
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="task2">
+                                        <label for="task2" title="Click to mark as completed"><span class="icon">🖥</span>Turn computers to sleep mode</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="task5">
+                                        <label for="task5" title="Click to mark as completed"><span class="icon">💡</span>Turn off all your lights</label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="task4">
+                                <label for="task4" title="Click to mark as completed"><span class="icon">♻️</span>Recycling</label>
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="task3">
+                                        <label for="task3" title="Click to mark as completed"><span class="icon">🍽</span>Reduce your food waste</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="task6">
+                                        <label for="task6" title="Click to mark as completed"><span class="icon">🚍</span>Take public transport</label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </section>
+            </div>
+
+        <hr>
+            <div class="contentItem">
+                <section>
+                    <h2>Progress Roadmap</h2>
+                    <div class="roadmap">
+                        <div class="milestone active">
+                            <h2>Zero-Waste Living</h2>
+                            <p>Mindful Shopping</p>
+                            <p>Composting</p>
+                            <p>Reduce Single-Use Plastics</p>
+                        </div>
+            
+                        <div class="milestone">
+                            <h2>Carbon Footprint Reduction</h2>
+                            <p>Green Transportation</p>
+                            <p>Energy Efficiency</p>
+                            <p>Plant-Based Diet</p>
+                        </div>
+            
+                        <div class="milestone">
+                            <h2>Sustainable Consumer Habits</h2>
+                            <p>Ethical Fashion Choices</p>
+                            <p>Local and Seasonal Eating</p>
+                            <p>Mindful Waste Management</p>
+                        </div>
+            
+                        <div class="milestone">
+                            <h2>Renewable Energy</h2>
+                            <p>Solar Power</p>
+                            <p>Wind Energy</p>
+                            <p>Hydropower</p>
+                        </div>
+            
+                        <div class="milestone">
+                            <h2>Biodiversity and Ecosystems</h2>
+                            <p>Protecting Wildlife</p>
+                            <p>Preserving Habitats</p>
+                            <p>Conservation Efforts</p>
+                        </div>
+            
+                        <div class="milestone">
+                            <h2>Climate Science Fundamentals</h2>
+                            <p>Understanding Greenhouse Gases</p>
+                            <p>Climate Research</p>
+                            <p>Impact of Climate Change</p>
+                        </div>
+        
+                    </div>
+                </section>
+            </div>
+
+
+
+
+        </div>
 
 
 
     </main>
 
-    <footer class="layout_footer">
-        <!-- Footer content goes here -->
-    </footer>
+    <script>
+
+        function redirectToPage() {
+            // Change 'pageB.html' to the URL of the page you want to navigate to
+            window.location.href = 'Quizzes.html';
+        }
+
+        function openModal() {
+            document.getElementById('modal').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Close the modal if the overlay is clicked
+        document.getElementById('overlay').addEventListener('click', closeModal);
+
+        function openModal2() {
+            document.getElementById('modal2').style.display = 'block';
+            document.getElementById('overlay2').style.display = 'block';
+        }
+
+        function closeModal2() {
+            document.getElementById('modal2').style.display = 'none';
+            document.getElementById('overlay2').style.display = 'none';
+        }
+
+        // Close the second modal if the second overlay is clicked
+        document.getElementById('overlay2').addEventListener('click', closeModal2);
+
+    </script>
+
 
 </body>
+
 
 </html>
