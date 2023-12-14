@@ -1,0 +1,133 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap" rel="stylesheet">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWS</title>
+    <link href="/CSS/style.css" rel="stylesheet" type="text/css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/earthBackG.png');
+            background-color: black;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            max-width: 100%;
+            font-family: 'Montserrat'
+        }
+
+        .container {
+            display: flex;
+            min-width: 66vw;
+            max-width: 66vw;
+            flex-direction: column;
+            align-items: center;
+
+            background-color: rgb(255, 255, 255);
+            stroke: gray;
+            stroke-width: 5;
+            margin: 0 auto;
+            min-height: 200vh;
+            margin-top: 5vw;
+            font-size: 1vw;
+        }
+
+        hr{
+            border: 5px solid green;
+            border-radius: 5px;
+            min-width: 50vw;
+        }
+        #svgimage{
+            width:13%;
+            margin-bottom: 11vh;
+            margin-left: -3.5vw;
+            transition: transform 0.3s ease-in-out;
+        }
+        #svgimage:hover{
+            transform:scale(1.1)
+            translate(-25px,-25px);
+            width:25%;
+        }
+
+    </style>
+</head>
+
+<body class="layout">
+    <header class="layout_header">
+        <h1>EcoAid</h1>
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="MyProgress.html">Progress</li>
+                    <li><a href="news.html">News</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <h1>Learn</h1>
+        <hr>
+        <h2 id="subheading">Click on a uk county to display its air quality out of 5</h2>
+        <div id="airquality">
+            <img id="map" src="/images/countymap.png" alt="countymap" >
+            <svg id="svgimage"width="130" height="90"viewBox="0 0 130 90"  xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" enable-background="new 0 0 130 90" version="1.1" xml:space="preserve">
+                <g class="layer">
+                 <title>Layer 1</title>
+                 <path d="m131,37c0,2.7 0,5.4 -0.35,8.25c-1.12,2.52 -2.43,4.87 -2.56,7.29c-0.33,5.75 -0.11,11.54 -0.11,17.42c-4.72,0.65 -9.07,1.82 -13.4,1.71c-4.57,-0.11 -7.03,2.03 -9.69,5.24c-3.92,4.71 -8.61,8.67 -15.16,9.74c-3.03,-0.45 -5.8,-0.53 -8.56,-0.69c-2.92,-0.17 -6.52,0.6 -8.63,-0.82c-4.58,-3.08 -8.96,-2.19 -13.91,-1.39c-1.59,-1.41 -3.77,-2.57 -3.97,-4.01c-0.7,-5.02 -4.02,-5.05 -7.62,-4.64c-3.38,0.39 -6.73,1.1 -10.54,1.75c-4.11,0.04 -7.77,-0.01 -11.49,-0.4c-2.12,-2.29 -4.02,-5.67 -6.25,-5.9c-5.58,-0.59 -7.4,-3.49 -7.36,-8.53c0.27,-1.78 0.81,-3.77 0.06,-4.94c-1.45,-2.25 -3.63,-4.04 -5.44,-6.4c-1.88,-3.45 -2.57,-6.27 0.95,-8.91c0.86,-0.65 0.95,-2.33 1.69,-3.65c1.99,-2.11 3.67,-4.12 5.73,-6.19c2.73,0.13 6.12,1.4 7.25,0.31c3.95,-3.79 9.06,-7.43 7.34,-14.27c0.02,0.03 -0.04,-0.01 0.25,-0.04c0.62,-0.32 0.95,-0.61 1.28,-0.9c-0.45,-0.36 -0.9,-0.71 -1.39,-1.43c0.66,-2.09 1.36,-3.82 2.47,-5.56c3.32,-0.37 6.22,-0.93 9.14,-1.05c7.48,-0.31 14.97,-0.43 22.87,-0.49c3.36,0.08 6.29,0.02 9.65,0.1c1.6,0.05 2.77,-0.05 4.37,-0.05c2.77,0.09 5.11,0.09 7.65,0.43c5.05,1.22 9.9,2.12 14.74,3.02c-0.01,0 0,-0.02 0.05,0.24c0.37,0.42 0.68,0.57 0.96,0.75c-0.02,0.01 0.01,-0.03 0.1,0.21c0.39,0.39 0.69,0.54 1.3,0.85c2.05,1.14 3.78,2.14 5.54,3.45c0.07,0.76 0.12,1.18 0.18,1.9c0.61,0.75 1.2,1.21 1.82,1.64c0.04,-0.04 -0.03,0.04 0,0.39c2.73,3.68 5.42,7.01 8.11,10.34c0.39,-0.3 0.79,-0.6 1.18,-0.9c-0.72,-1.29 -1.43,-2.59 -1.79,-3.96c3.7,2.33 7.04,4.73 10.46,7.51c1.07,1.11 2.08,1.84 3.08,2.58m-11.63,-5.4c0.17,0.45 0.34,0.89 0.52,1.33c0.08,-0.38 0.17,-0.76 -0.52,-1.33z" fill="#FDEEEF" id="svg_1" opacity="1" transform="matrix(1 0 0 1 0 0)"/>
+                 <path d="m119.76,31.7c0.3,0.47 0.21,0.85 0.13,1.23c-0.18,-0.44 -0.35,-0.88 -0.13,-1.23z" fill="#000000" id="svg_23" opacity="1"/>
+                 <path d="m101.12,13.2c0.21,-0.1 0.52,0.04 0.91,0.44c-0.22,0.1 -0.52,-0.05 -0.91,-0.44z" fill="#AAACC9" id="svg_24" opacity="1"/>
+                 <path d="m100.06,12.24c0.25,-0.11 0.56,0.05 0.93,0.47c-0.25,0.1 -0.56,-0.05 -0.93,-0.47z" fill="#AAACC9" id="svg_25" opacity="1"/>
+                </g>
+            </svg>
+        </div>
+    </main>
+
+    <footer class="layout_footer">
+        <p>© EcoAid Inc. All Rights Reserved</p>
+    </footer>
+
+    
+</body>
+<script type="text/javascript">
+
+    function unselected_colour(evt) {
+        let target = evt.target;
+        target.setAttributeNS(null, "fill", "#FDEEEF"); 
+        let elem = document.getElementById("subheading")
+        elem.innerHTML = "Click on a uk county to display its air quality out of 5"
+    }
+    
+    function selected_colour(evt) {
+        let target = evt.target;
+        target.setAttributeNS(null, "fill", "orange");
+    }
+    
+    function display_text(evt){
+        let target = evt.target;
+        target.setAttributeNS(null,"fill","red")
+        let elem = document.getElementById("subheading")
+        elem.innerHTML = "Norfolk: Air quality 3"
+    }
+    
+    let svg_obj = document.getElementById('svgimage');
+    
+    svg_obj.addEventListener('mouseover', selected_colour, false);
+    svg_obj.addEventListener('mouseout', unselected_colour, false);
+    svg_obj.addEventListener('mousedown', display_text, false);
+</script>
+
+</html>

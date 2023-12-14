@@ -74,7 +74,7 @@
             border: 5px solid rgb(0, 128, 128);
             border-radius: 20px;
             width: 20vw;
-            height:50vh;
+            height:60vh;
         }
 
         #Daily_Tasks{
@@ -150,6 +150,13 @@
         #aboutpagecontents{
             margin-top:13vh;
         }
+        #audio{
+            width:2vw;
+            cursor: pointer;
+        }
+        #audioElement{
+            display: none;
+        }
     </style>
     <div class ="container">
         <div id="Homepage">
@@ -175,14 +182,22 @@
                             <h2>QUIZ </h2>
                         </section>
                         <section>
-                            <button class="DailyTasksButton"> </button>
+                            <button class="DailyTasksButton" onclick="redirectToPage2()"> </button>
                             <h2>Learn </h2>
                         </section>
                         <section>
-                            <button class="DailyTasksButton"> </button>
+                            <button class="DailyTasksButton" onclick="openModal3()"></button></button>
                             <h2>Watch </h2>
                         </section>
                     </div>
+                    <div id="modal3" class="modal">
+                        <h2 style="text-align: center;">Day 4 Video</h2>
+                        <img src="/images/ben.jpg" alt="day 4 video">
+        
+                    </div>
+        
+                    <div id="overlay3" class="overlay"></div>
+        
                     <ul>
                         <li>
                             <p>Reminder: Before grocery shopping bring your own reusable bag!</p>
@@ -194,6 +209,11 @@
                             <p>Make sure to check instructions on bottles before recycling. Some may need the cap separated!</p>
                         </li>
                     </ul>
+                    <audio id="audioElement" controls>
+                        <source src="/images/Record.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <img id="audio" src="/images/speaker.png" alt="speaker" >
                 </div>
                 <div id="Leaderboard">
                     <h2 class="content_header">Leaderboard</h2>
@@ -220,9 +240,48 @@
         function redirectToPage() {
             // Change 'pageB.html' to the URL of the page you want to navigate to
             window.location.href = 'Quizzes.html';
+            
         }
+        function redirectToPage2() {
+            // Change 'pageB.html' to the URL of the page you want to navigate to
+            window.location.href = 'learn.html';
+            
+        }
+        function openModal3() {
+            document.getElementById('modal3').style.display = 'block';
+            document.getElementById('overlay3').style.display = 'block';
+        }
+
+        function closeModal3() {
+            document.getElementById('modal3').style.display = 'none';
+            document.getElementById('overlay3').style.display = 'none';
+        }
+
+        // Close the second modal if the second overlay is clicked
+        document.getElementById('overlay3').addEventListener('click', closeModal3);
     </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the audio element by its id
+        var audio = document.getElementById('audioElement');
+
+        // Get the image element by its id
+        var audioImage = document.getElementById('audio');
+
+        // Add a click event listener to the image
+        audioImage.addEventListener('click', function () {
+            // Check if the audio is paused
+            if (audio.paused) {
+                // If paused, play the audio
+                audio.play();
+            } else {
+                // If playing, pause the audio
+                audio.pause();
+            }
+        });
+    });
+</script>
 </body>
 
 
