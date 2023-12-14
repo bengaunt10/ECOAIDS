@@ -119,6 +119,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             z-index: 999;
+            animation: popupBounceIn 1.5s ease-in-out forwards; /* New animation */
         }
 
         .popup h2 {
@@ -145,6 +146,20 @@
         .popup button:hover {
             color: rgb(49, 78, 63);
             background-color: rgb(254, 247, 186);
+        }
+        @keyframes popupBounceIn {
+            0%, 20%, 50%, 80%, 100% {
+                top: 50%;
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                top: 30%;
+                transform: translateX(-50%) translateY(-30px);
+            }
+            60% {
+                top: 40%;
+                transform: translateX(-50%) translateY(-15px);
+            }
         }
 
         #startButton {
@@ -174,6 +189,9 @@
 
     <header class="layout_header">
         <h1>Quizzes</h1>
+        <div id="rank">
+            <p>Rank 10</p>
+        </div>
         <div class="navbar">
             <nav>
                 <ul>
