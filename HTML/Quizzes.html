@@ -65,6 +65,7 @@
         }
 
         #quiz-container {
+            margin-bottom: -10vh;
             max-width: 600px;
             width: 100%;
             background-color: #fff;
@@ -219,6 +220,7 @@
             <button id="startButton" onclick="startQuiz()">Start Quiz</button>
             <div id="quiz-container" style="display: none;">
                 <h2 id="question"></h2>
+                <img id="QuestionImage" src="" alt="Quiz Image" style="width: 8vw; margin:auto;">
                 <button class="button" onclick="checkAnswer(0)"></button>
                 <button class="button" onclick="checkAnswer(1)"></button>
                 <button class="button" onclick="checkAnswer(2)"></button>
@@ -240,11 +242,14 @@
      const questions = [
             {
                 question: "What is the most common method used to harness energy from the sun for electricity generation?",
+                image:"sun.png",
                 answers: ["Wind Power", "Hydropower", " Solar Photovoltaic (PV)", "Geothermal Energy"],
                 correctIndex: 2
+
             },
             {
                 question: "Which renewable energy source is often associated with large blades turning a rotor to generate electricity?",
+                image:"windmill.png",
                 answers: ["Biomass", "Tidal Power", "Wind Power", "Hydrogen Fuel Cells"],
                 correctIndex: 1
             }
@@ -257,7 +262,9 @@
         function displayQuestion() {
             const currentQuestion = questions[currentQuestionIndex];
             document.getElementById("question").textContent = currentQuestion.question;
-
+            const quizImage = document.getElementById("QuestionImage");
+            quizImage.src = `/images/quizImages/${currentQuestion.image}`;
+            quizImage.style.display = "block";
             for (let i = 0; i < currentQuestion.answers.length; i++) {
                 document.getElementsByClassName("button")[i].textContent = currentQuestion.answers[i];
             }
