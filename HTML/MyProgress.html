@@ -37,16 +37,16 @@
             flex-direction: column;
             min-width: 66vw;
             max-width: 66vw;
-            height: 150vw;
+            height: 250vh;
             align-items: center;
-            justify-content: center;
+       
             background-color: rgb(255, 255, 255);
             margin: 0 auto;
         }
 
         .content{
             text-align:center;
-            margin-top: -70%; /* Adjust the top margin as needed */
+            margin-top: 10vh; /* Adjust the top margin as needed */
             margin-bottom: 30px; /* Adjust the bottom margin as needed */
            /* margin-left:-70%; */
         }
@@ -180,6 +180,51 @@
         margin-bottom: 10px; /* Add spacing between milestone title and description */
     }
 
+    /* video roadmap css */
+    .videoroadmap {
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding:15px;
+            text-align: left;
+        }
+    .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+    }
+    #circles{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap:5vw;
+        
+    }
+    #days{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap:5.5vw;
+        margin-top:10vh
+    }
+    #circlehr{
+        height:7px; 
+        background-color: black;
+        margin-top: -3vh
+    }
+    #currentdaybutton{
+        background: none;
+         border: none;
+          cursor: pointer;
+    }
+    #greencircle:hover{
+        width:60px;
+        height:60px;
+        border-radius: 30px;
+        margin-top: -1vh;
+    }
+   
+
         /*QUIZ SECTION*/
         #quiz-container {
             display: flex;
@@ -242,9 +287,6 @@
             background: rgba(0, 0, 0, 0.5);
             z-index: 900;
         }
-
-
-
 
     </style>
 </head>
@@ -325,6 +367,15 @@
 
             <div id="overlay2" class="overlay"></div>
 
+
+            <div id="modal3" class="modal">
+                <h2>Day 4 Video</h2>
+                <img src="ben.jpg" alt="day 4 video">
+
+            </div>
+
+            <div id="overlay3" class="overlay"></div>
+
         <hr>
             <div class="contentItem">
                 <h2>Daily Checklist</h2>
@@ -365,7 +416,7 @@
                 </section>
             </div>
 
-        <hr>
+         <hr>
             <div class="contentItem">
                 <section>
                     <h2>Progress Roadmap</h2>
@@ -415,7 +466,32 @@
                     </div>
                 </section>
             </div>
-
+        <hr>
+            <div class ="contentItem">
+                <h2>Daily videos</h2>
+                <section class="videoroadmap">
+                    <p></p>
+                    <div id="days">
+                        <p>Day 1</p>
+                        <p>Day 2</p>
+                        <p>Day 3</p>
+                        <p>Day 4</p>
+                        <p>Day 5</p>
+                        <p>Day 6</p>
+                        <p>Day 7</p>
+                    </div>
+                    <div id="circles">  
+                        <div class="circle" style="background-color: red;border:1px solid black"></div>
+                        <div class="circle" style="background-color: red;border:1px solid black"></div>
+                        <div class="circle" style="background-color: red;border:1px solid black"></div>
+                        <button id="currentdaybutton" onclick="openModal3()"><div class="circle" id="greencircle" style="background-color: green; border:1px solid black"></div></button>
+                        <div class="circle" style="background-color: white;border:1px solid black"></div>
+                        <div class="circle" style="background-color: white;border:1px solid black"></div>
+                        <div class="circle" style="background-color: white;border:1px solid black"></div>
+                    </div>
+                    <hr id="circlehr">
+                </section>
+            </div>
 
 
 
@@ -469,6 +545,18 @@
         // Close the second modal if the second overlay is clicked
         document.getElementById('overlay2').addEventListener('click', closeModal2);
 
+        function openModal3() {
+            document.getElementById('modal3').style.display = 'block';
+            document.getElementById('overlay3').style.display = 'block';
+        }
+
+        function closeModal3() {
+            document.getElementById('modal3').style.display = 'none';
+            document.getElementById('overlay3').style.display = 'none';
+        }
+
+        // Close the second modal if the second overlay is clicked
+        document.getElementById('overlay3').addEventListener('click', closeModal3);
     </script>
 
 
