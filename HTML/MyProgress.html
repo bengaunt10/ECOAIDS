@@ -190,7 +190,7 @@
     .circle {
         width: 50px;
         height: 50px;
-        border-radius: 25px;
+        border-radius: 30px;
     }
     #circles{
         display: flex;
@@ -219,7 +219,7 @@
     #greencircle:hover{
         width:60px;
         height:60px;
-        border-radius: 30px;
+        border-radius: 35px;
         margin-top: -1vh;
     }
    
@@ -348,7 +348,9 @@
 
             <div id="modal3" class="modal">
                 <h2 style="text-align: center;">Day 4 Video</h2>
-                <img src="/images/ben.jpg" alt="day 4 video">
+                <video controls width="500">
+                    <source width="10vw" src="/carbonCycle.mp4" type="video/mp4">
+                </video>
 
             </div>
 
@@ -464,9 +466,9 @@
                         <div class="circle" style="background-color: rgb(230, 65, 65);border:4px solid rgb(107, 52, 52)"></div>
                         <div class="circle" style="background-color: rgb(230, 65, 65);border:4px solid rgb(107, 52, 52)"></div>
                         <button id="currentdaybutton" onclick="openModal3()"><div class="circle" id="greencircle" style="background-color: rgb(18, 115, 18); border:4px solid rgb(40, 99, 40)"></div></button>
-                        <div class="circle" style="background-color: white;border:1px solid black"></div>
-                        <div class="circle" style="background-color: white;border:1px solid black"></div>
-                        <div class="circle" style="background-color: white;border:1px solid black"></div>
+                        <div class="circle" style="background-color: white;border:4px solid grey"></div>
+                        <div class="circle" style="background-color: white;border:4px solid grey"></div>
+                        <div class="circle" style="background-color: white;border:4px solid grey"></div>
                     </div>
                     <hr id="circlehr">
                 </section>
@@ -538,7 +540,9 @@
         document.getElementById('overlay3').addEventListener('click', closeModal3);
     </script>
 
-
+<footer class="layout_footer">
+    <p>© EcoAid Inc. All Rights Reserved</p>
+</footer>
 </body>
 
 
